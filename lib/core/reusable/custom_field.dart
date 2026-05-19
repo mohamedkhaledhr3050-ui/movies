@@ -9,7 +9,9 @@ class CustomField extends StatefulWidget {
   final String prefix;
   String? suffix;
   bool isObscure;
-  CustomField({super.key, required this.hint, required this.prefix, this.suffix, this.isObscure = false});
+  String? Function(String?)? validator;
+  TextEditingController controller;
+  CustomField({super.key, required this.hint, required this.prefix, this.suffix, this.isObscure = false, required this.validator, required this.controller});
 
   @override
   State<CustomField> createState() => _CustomFieldState();
@@ -20,6 +22,8 @@ class _CustomFieldState extends State<CustomField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
+      validator: widget.validator,
       obscureText:widget.isObscure? !isVisible : false ,
       style: TextStyle(
         color: ColorsManager.white

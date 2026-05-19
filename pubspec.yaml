@@ -36,6 +36,15 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.3.0
+  flutter_bloc: ^9.1.1
+  cloud_firestore: ^6.4.1
+  firebase_auth: ^6.5.1
+  injectable:
+  get_it:
+  hive_ce: ^2.19.3
+  hive_ce_flutter: ^2.3.4
+  connectivity_plus: ^7.1.1
+  firebase_core: ^4.9.0
 
 dev_dependencies:
   flutter_test:
@@ -47,6 +56,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  injectable_generator:
+  hive_ce_generator:
+  build_runner:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
