@@ -27,10 +27,10 @@ extension GetItInjectableX on _i174.GetIt {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     gh.factory<_i529.LoginDao>(() => _i990.LoginDaoImpl());
     gh.factory<_i5.LoginRepo>(
-          () => _i886.LoginRepoImpl(loginDao: gh<_i529.LoginDao>()),
+      () => _i886.LoginRepoImpl(loginDao: gh<_i529.LoginDao>()),
     );
     gh.factory<_i610.LoginViewModel>(
-          () => _i610.LoginViewModel(gh<_i5.LoginRepo>()),
+      () => _i610.LoginViewModel(gh<_i5.LoginRepo>()),
     );
     return this;
   }
