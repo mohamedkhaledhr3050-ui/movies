@@ -23,6 +23,9 @@ class LoginDaoImpl implements LoginDao {
       if (e.code == 'user-not-found') {
         throw Exception('No user found for that email.');
       }
+      else if (e.code == 'invalid-credential' || e.code == 'user-not-found') {
+        throw Exception('Incorrect email or password. Please try again.');
+      }
       else if (e.code == 'wrong-password') {
         throw Exception('Wrong password provided for that user.');
       }
