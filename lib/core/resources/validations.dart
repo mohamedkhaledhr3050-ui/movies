@@ -68,4 +68,17 @@ class Validations {
     }
     return null;
   }
+
+  static String? validatePhoneNumber(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Phone number is required';
+    }
+
+    // بنشيل المسافات لو المستخدم كتبها بالغلط
+    if (!RegExp(AppConstants.phoneRegex).hasMatch(value.trim())) {
+      return 'Please enter a valid 11-digit phone number';
+    }
+
+    return null;
+  }
 }

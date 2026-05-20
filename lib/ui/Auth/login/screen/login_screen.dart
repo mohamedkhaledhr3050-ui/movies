@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:movies/core/DI/di.dart';
 import 'package:movies/core/resources/assets_manager.dart';
 import 'package:movies/core/resources/colors_manager.dart';
+import 'package:movies/core/resources/routes_manager.dart';
 import 'package:movies/core/resources/strings_manager.dart';
 import 'package:movies/core/resources/validations.dart';
 import 'package:movies/core/reusable/custom_field.dart';
@@ -47,7 +48,14 @@ class _LoginScreenState extends State<LoginScreen> {
       child: BlocConsumer<LoginViewModel, LoginStates>(
         listener: (context, state) {
           if (state is SuccessState) {
-          } else if (state is ErrorState) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Account Created Successfully!'),
+                backgroundColor: Colors.green,
+              ),
+            );
+          }
+          else if (state is ErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.error), backgroundColor: Colors.red),
             );
@@ -116,7 +124,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ?.copyWith(color: ColorsManager.white),
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, RoutesManager.register);
+                              },
                               child: Text(
                                 StringsManager.createOne,
                                 style: Theme.of(context).textTheme.titleSmall

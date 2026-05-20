@@ -13,10 +13,15 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
 import '../../data/dataSource/login_dao.dart' as _i529;
+import '../../data/dataSource/register_dao.dart' as _i985;
 import '../../data/dataSource_impl/login_dao_impl.dart' as _i990;
+import '../../data/dataSource_impl/register_dao_impl.dart' as _i463;
 import '../../data/repo_impl/login_repo_impl.dart' as _i886;
+import '../../data/repo_impl/register_repo_impl.dart' as _i357;
 import '../../repository/login_repo.dart' as _i5;
+import '../../repository/register_repo.dart' as _i680;
 import '../../ui/Auth/login/viewModel/login_view_model.dart' as _i610;
+import '../../ui/Auth/register/viewModel/register_view_model.dart' as _i935;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
