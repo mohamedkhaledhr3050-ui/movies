@@ -30,19 +30,12 @@ extension GetItInjectableX on _i174.GetIt {
     _i526.EnvironmentFilter? environmentFilter,
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
-    gh.factory<_i985.RegisterDao>(() => _i463.RegisterDaoImpl());
     gh.factory<_i529.LoginDao>(() => _i990.LoginDaoImpl());
     gh.factory<_i5.LoginRepo>(
       () => _i886.LoginRepoImpl(loginDao: gh<_i529.LoginDao>()),
     );
     gh.factory<_i610.LoginViewModel>(
       () => _i610.LoginViewModel(gh<_i5.LoginRepo>()),
-    );
-    gh.factory<_i680.RegisterRepo>(
-      () => _i357.RegisterRepoImpl(gh<_i985.RegisterDao>()),
-    );
-    gh.factory<_i935.RegisterViewModel>(
-      () => _i935.RegisterViewModel(gh<_i680.RegisterRepo>()),
     );
     return this;
   }
