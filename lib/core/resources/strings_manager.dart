@@ -17,4 +17,6 @@ abstract final class StringsManager {
   static String phoneNumber = "Phone Number";
   static String createAcc = "Create Account";
   static String alreadyHaveAcc = "Already Have Account?";
+  static String forgetPass = "Forget Password";
+  static String verifyEmail = "Verify Email";
 }
