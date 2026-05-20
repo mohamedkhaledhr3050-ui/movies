@@ -11,4 +11,10 @@ abstract final class AssetsManager {
   static const String visibleOn = "assets/images/visible_on.svg";
   static const String visibleOff = "assets/images/eye-slash.svg";
   static const String googleIcon = "assets/images/google_icon.svg";
+  static const String arrowBack = "assets/images/arrow_back.svg";
+  static const String avatar1 = "assets/images/avatar1.png";
+  static const String avatar2 = "assets/images/avatar2.png";
+  static const String avatar3 = "assets/images/avatar3.png";
+  static const String name = "assets/images/name_icon.svg";
+  static const String phone = "assets/images/phone_icon.svg";
 }

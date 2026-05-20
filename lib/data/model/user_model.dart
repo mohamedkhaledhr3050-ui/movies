@@ -4,7 +4,7 @@ class UserModel {
 
   UserModel({
     required this.email,
-    required this.id,
+    this.id,
     required this.name,
     this.avatarId = 1,
     required this.phone,

@@ -11,4 +11,10 @@ abstract final class StringsManager {
   static String createOne = "Create One";
   static String or = "OR";
   static String loginWithGoogle = "Login With Google";
+  static String register = "Register";
+  static String name = "Name";
+  static String confirmPassword = "Confirm Password";
+  static String phoneNumber = "Phone Number";
+  static String createAcc = "Create Account";
+  static String alreadyHaveAcc = "Already Have Account?";
 }
