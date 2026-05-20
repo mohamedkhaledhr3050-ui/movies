@@ -12,10 +12,30 @@ class LoginDaoImpl implements LoginDao {
     required String password,
   }) async {
 
-    final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-    return credential.user!.uid;
+    try{
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return credential.user!.uid;
+    }
+    on FirebaseAuthException catch(e){
+      if (e.code == 'user-not-found') {
+        throw Exception('No user found for that email.');
+      }
+      else if (e.code == 'wrong-password') {
+        throw Exception('Wrong password provided for that user.');
+      }
+      else if (e.code == 'invalid-email') {
+        throw Exception('The email address is badly formatted.');
+      }
+      else if (e.code == 'user-disabled') {
+        throw Exception('This user account has been disabled.');
+      }
+      throw Exception(e.message ?? 'An unknown Firebase error occurred.');
+    }
+    catch(e){
+      throw Exception('Network error or connection failed. Please try again.');
+    }
   }
 }
