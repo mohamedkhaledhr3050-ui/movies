@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies/core/remote/local/sharedPrefs/prefs_manager.dart';
 import 'package:movies/core/resources/app_theme.dart';
 import 'package:movies/core/resources/routes_manager.dart';
 import 'package:movies/ui/Auth/forgetPassword/screen/forget_password.dart';
@@ -14,6 +15,7 @@ import 'firebase_options.dart';
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
+  await PrefsManager.init();
   configureDependencies();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform, // تأكد إن ملف الـ firebase_options متولد عندك
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.light,
           theme: AppTheme.lightTheme,
           debugShowCheckedModeBanner: false,
-          initialRoute: RoutesManager.login,
+          initialRoute: RoutesManager.onBoarding,
           routes: {
             RoutesManager.onBoarding: (_)=> OnBoardingScreen(),
             RoutesManager.login:(_)=> LoginScreen(),
