@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.light,
           theme: AppTheme.lightTheme,
           debugShowCheckedModeBanner: false,
-          initialRoute: RoutesManager.onBoarding,
+          initialRoute: RoutesManager.home,
           routes: {
             RoutesManager.onBoarding: (_)=> OnBoardingScreen(),
             RoutesManager.login:(_)=> LoginScreen(),

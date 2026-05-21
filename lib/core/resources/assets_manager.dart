@@ -18,4 +18,12 @@ abstract final class AssetsManager {
   static const String name = "assets/images/name_icon.svg";
   static const String phone = "assets/images/phone_icon.svg";
   static const String forgetPassBg = "assets/images/forgetPassword_background.png";
+  static const String home = "assets/images/home.svg";
+  static const String homeSelected = "assets/images/home_selected.svg";
+  static const String search = "assets/images/search.svg";
+  static const String searchSelected = "assets/images/search_selected.svg";
+  static const String explore = "assets/images/explore.svg";
+  static const String exploreSelected = "assets/images/explore_selected.svg";
+  static const String profile = "assets/images/profile.svg";
+  static const String profileSelected = "assets/images/Profile_selected.svg";
 }
