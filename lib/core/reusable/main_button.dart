@@ -25,6 +25,7 @@ class MainButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          padding: REdgeInsets.symmetric(vertical: 14.49),
           backgroundColor:
               backgroundColor ?? Theme.of(context).colorScheme.primary,
           shape: RoundedRectangleBorder(

@@ -17,4 +17,5 @@ abstract final class AssetsManager {
   static const String avatar3 = "assets/images/avatar3.png";
   static const String name = "assets/images/name_icon.svg";
   static const String phone = "assets/images/phone_icon.svg";
+  static const String forgetPassBg = "assets/images/forgetPassword_background.png";
 }

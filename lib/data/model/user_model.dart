@@ -3,11 +3,11 @@ class UserModel {
   int avatarId;
 
   UserModel({
-    required this.email,
+    this.email,
     this.id,
-    required this.name,
+    this.name,
     this.avatarId = 1,
-    required this.phone,
+    this.phone,
   });
 
   factory UserModel.fromFirestore(Map<String,dynamic>? json){

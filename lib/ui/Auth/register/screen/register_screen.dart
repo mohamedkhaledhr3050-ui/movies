@@ -74,6 +74,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 backgroundColor: Colors.green,
               ),
             );
+            Navigator.pushReplacementNamed(context, RoutesManager.home);
           }
 
           else if(state is RegisterErrorState){

@@ -48,12 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: BlocConsumer<LoginViewModel, LoginStates>(
         listener: (context, state) {
           if (state is SuccessState) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Account Created Successfully!'),
-                backgroundColor: Colors.green,
-              ),
-            );
+            Navigator.pushReplacementNamed(context, RoutesManager.home);
           }
           else if (state is ErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -92,7 +87,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, RoutesManager.forgetPass);
+                            },
                             child: Text(
                               StringsManager.forgetPassword,
                               style: Theme.of(context).textTheme.titleSmall,

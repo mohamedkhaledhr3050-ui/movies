@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies/core/remote/local/sharedPrefs/prefs_manager.dart';
 import 'package:movies/core/resources/colors_manager.dart';
 import 'package:movies/core/resources/routes_manager.dart';
 import 'package:movies/core/resources/strings_manager.dart';
@@ -55,6 +56,7 @@ class DetailsWidget extends StatelessWidget {
                   SizedBox(height: 24.h),
                   MainButton(onClick: () {
                     if(index == OnBoardingModel.model.length - 1){
+                      PrefsManager.saveOnBoarding();
                       Navigator.pushReplacementNamed(context, RoutesManager.login);
                     }
                     else{
