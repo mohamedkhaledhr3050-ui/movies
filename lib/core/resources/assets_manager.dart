@@ -26,4 +26,14 @@ abstract final class AssetsManager {
   static const String exploreSelected = "assets/images/explore_selected.svg";
   static const String profile = "assets/images/profile.svg";
   static const String profileSelected = "assets/images/Profile_selected.svg";
+  static const String watchNow = "assets/images/Watch Now.png";
+  static const String availableNow = "assets/images/Available Now.png";
+  static const String star = "assets/images/star 1.png";
+  static const String star1 = "assets/images/star.svg";
+  static const String arrowRight = "assets/images/arrow_right.svg";
+  static const String arrowBackIos = "assets/images/arrow_back_ios.svg";
+  static const String bookMark = "assets/images/book_mark.svg";
+  static const String play = "assets/images/play.png";
+  static const String heart = "assets/images/heart.svg";
+  static const String time = "assets/images/time.svg";
 }

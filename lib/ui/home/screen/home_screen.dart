@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: screens[currentIndex],
+      body: screens[currentIndex]
     );
   }
 }

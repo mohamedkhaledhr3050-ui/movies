@@ -4,4 +4,5 @@ abstract final class RoutesManager {
   static const String register = 'register';
   static const String forgetPass = 'forgetPassword';
   static const String home = 'home';
+  static const String details = 'details';
 }
