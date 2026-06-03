@@ -19,4 +19,12 @@ abstract final class StringsManager {
   static String alreadyHaveAcc = "Already Have Account?";
   static String forgetPass = "Forget Password";
   static String verifyEmail = "Verify Email";
+  static String seeMore = "See More";
+  static String watch = "Watch";
+  static String summary = "Summary";
+  static String screenShots = "Screen Shots";
+  static String similar = "Similar";
+  static String cast = "Cast";
+  static String genres = "Genres";
+
 }

@@ -6,4 +6,5 @@ abstract final class ColorsManager {
   static Color tertiary = Color(0xffffffff).withValues(alpha: 0.6);
   static Color white = Color(0xffffffff);
   static Color fieldBoarder = Color(0xff282A28);
+  static Color chiliRed = Color(0xffE82626);
 }
