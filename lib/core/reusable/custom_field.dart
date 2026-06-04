@@ -5,13 +5,14 @@ import 'package:movies/core/resources/assets_manager.dart';
 import 'package:movies/core/resources/colors_manager.dart';
 
 class CustomField extends StatefulWidget {
-  final String hint;
-  final String prefix;
+  final String? hint;
+  final String? prefix;
   String? suffix;
   bool isObscure;
   String? Function(String?)? validator;
-  TextEditingController controller;
-  CustomField({super.key, required this.hint, required this.prefix, this.suffix, this.isObscure = false, required this.validator, required this.controller});
+  void Function(String)? onChanged;
+  TextEditingController? controller;
+  CustomField({super.key, this.hint, this.prefix, this.suffix, this.isObscure = false, this.validator, this.controller, this.onChanged});
 
   @override
   State<CustomField> createState() => _CustomFieldState();
@@ -22,6 +23,7 @@ class _CustomFieldState extends State<CustomField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: widget.onChanged,
       controller: widget.controller,
       validator: widget.validator,
       obscureText:widget.isObscure? !isVisible : false ,
@@ -29,10 +31,10 @@ class _CustomFieldState extends State<CustomField> {
         color: ColorsManager.white
       ),
       decoration: InputDecoration(
-        prefixIcon: Padding(
+        prefixIcon:(widget.prefix != null && widget.prefix!.isNotEmpty)? Padding(
           padding: REdgeInsets.only(left: 19 , right: 5),
-          child: SvgPicture.asset(widget.prefix, width: 31.w, height: 25.h,),
-        ),
+          child: SvgPicture.asset(widget.prefix!, width: 31.w, height: 25.h,),
+        ): null,
         prefixIconConstraints: BoxConstraints(
           minWidth: 50.w,
           maxWidth: 50.w,

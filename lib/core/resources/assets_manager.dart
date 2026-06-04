@@ -36,4 +36,5 @@ abstract final class AssetsManager {
   static const String play = "assets/images/play.png";
   static const String heart = "assets/images/heart.svg";
   static const String time = "assets/images/time.svg";
+  static const String emptySearch = "assets/images/empty_search_placeholder.png";
 }
