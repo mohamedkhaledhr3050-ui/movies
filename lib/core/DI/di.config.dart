@@ -18,24 +18,28 @@ import '../../data/dataSource/movie_details_dao.dart' as _i810;
 import '../../data/dataSource/movie_list_dao.dart' as _i317;
 import '../../data/dataSource/movie_page_dao.dart' as _i103;
 import '../../data/dataSource/register_dao.dart' as _i985;
+import '../../data/dataSource/search_dao.dart' as _i41;
 import '../../data/dataSource_impl/forget_pass_dao_impl.dart' as _i957;
 import '../../data/dataSource_impl/login_dao_impl.dart' as _i990;
 import '../../data/dataSource_impl/movie_details_api_dao_impl.dart' as _i934;
 import '../../data/dataSource_impl/movie_list_api_dao_impl.dart' as _i827;
 import '../../data/dataSource_impl/movie_page_api_dao_impl.dart' as _i866;
 import '../../data/dataSource_impl/register_dao_impl.dart' as _i463;
+import '../../data/dataSource_impl/search_dao_impl.dart' as _i311;
 import '../../data/repo_impl/forget_password_repo_impl.dart' as _i1051;
 import '../../data/repo_impl/login_repo_impl.dart' as _i886;
 import '../../data/repo_impl/movie_details_repo_impl.dart' as _i951;
 import '../../data/repo_impl/movie_list_repo_impl.dart' as _i318;
 import '../../data/repo_impl/movie_page_repo_impl.dart' as _i617;
 import '../../data/repo_impl/register_repo_impl.dart' as _i357;
+import '../../data/repo_impl/search_repo_impl.dart' as _i1008;
 import '../../repository/forget_password_repo.dart' as _i479;
 import '../../repository/login_repo.dart' as _i5;
 import '../../repository/movie_details_repo.dart' as _i712;
 import '../../repository/movie_list_repo.dart' as _i26;
 import '../../repository/movie_page_repo.dart' as _i948;
 import '../../repository/register_repo.dart' as _i680;
+import '../../repository/search_repo.dart' as _i138;
 import '../../ui/Auth/forgetPassword/viewModel/forget_password_viewModel.dart'
     as _i790;
 import '../../ui/Auth/login/viewModel/login_view_model.dart' as _i610;
@@ -44,6 +48,8 @@ import '../../ui/home/tabs/home_tab/viewModel/movie_list_view_model.dart'
     as _i725;
 import '../../ui/home/tabs/home_tab/viewModel/movie_page_view_model.dart'
     as _i667;
+import '../../ui/home/tabs/search_tab/searchViewModel/search_view_model.dart'
+    as _i142;
 import '../../ui/movieDetails/viewModel/movie_details_view_model.dart' as _i216;
 import '../remote/api/api_manager.dart' as _i384;
 
@@ -60,6 +66,9 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i866.MoviePageApiDaoImpl(gh<_i384.ApiManager>()),
     );
     gh.factory<_i814.ForgetPasswordDao>(() => _i957.ForgetPassDaoImpl());
+    gh.factory<_i41.SearchDao>(
+      () => _i311.SearchDaoImpl(gh<_i384.ApiManager>()),
+    );
     gh.factory<_i810.MovieDetailsDao>(
       () => _i934.MovieDetailsApiDaoImpl(gh<_i384.ApiManager>()),
     );
@@ -94,6 +103,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i26.MovieListRepo>(
       () => _i318.MovieListRepoImpl(gh<_i317.MovieListDao>()),
     );
+    gh.factory<_i138.SearchRepo>(
+      () => _i1008.SearchRepoImpl(gh<_i41.SearchDao>()),
+    );
     gh.factory<_i725.MovieListViewModel>(
       () => _i725.MovieListViewModel(gh<_i26.MovieListRepo>()),
     );
@@ -102,6 +114,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i667.MoviePageViewModel>(
       () => _i667.MoviePageViewModel(gh<_i948.MoviePageRepo>()),
+    );
+    gh.factory<_i142.SearchViewModel>(
+      () => _i142.SearchViewModel(gh<_i138.SearchRepo>()),
     );
     return this;
   }

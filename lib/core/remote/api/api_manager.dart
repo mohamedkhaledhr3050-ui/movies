@@ -56,4 +56,14 @@ class ApiManager {
 
     return MovieResponse.fromJson(response.data);
   }
+
+   Future<MovieResponse> searchMovies(String searchQuery)async{
+    var response =await dio.get("list_movies.json", queryParameters: {
+      "query_term": searchQuery,
+      "limit": 20
+    });
+
+    var moviesResponse = MovieResponse.fromJson(response.data);
+    return moviesResponse;
+  }
 }

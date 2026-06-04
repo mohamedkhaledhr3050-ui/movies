@@ -26,5 +26,6 @@ abstract final class StringsManager {
   static String similar = "Similar";
   static String cast = "Cast";
   static String genres = "Genres";
+  static String search = "Search";
 
 }
