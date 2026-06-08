@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movies/core/resources/app_constants.dart';
 import 'package:movies/core/resources/assets_manager.dart';
 import 'package:movies/ui/home/tabs/explore_tab/explore_tab.dart';
 import 'package:movies/ui/home/tabs/home_tab/home_tab.dart';
@@ -14,16 +15,47 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController _controller;
   int currentIndex = 0;
-  List<Widget> screens = [HomeTab(), SearchTab(), ExploreTab(), ProfileTab()];
+  late List<Widget> screens;
+
+  @override
+  void initState() {
+    _controller = TabController(
+      length: AppConstants.movieGenres.length,
+      vsync: this,
+    );
+    screens = [
+      HomeTab(goToExplore: (id) => goToExplore(id)),
+      SearchTab(),
+      ExploreTab(controller: _controller),
+      ProfileTab(),
+    ];
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void goToExplore(int genreId) {
+    int index = AppConstants.movieGenres.values.toList().indexOf(genreId);
+    if (index != -1) {
+      setState(() => currentIndex = 2);
+      _controller.animateTo(index);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
       bottomNavigationBar: Container(
-        margin: REdgeInsets.only(left: 9, right: 9,bottom: 9),
+        margin: REdgeInsets.only(left: 9, right: 9, bottom: 9),
         child: ClipRRect(
           borderRadius: BorderRadiusGeometry.circular(16.r),
           child: BottomNavigationBar(
@@ -62,7 +94,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: screens[currentIndex]
+      body: IndexedStack(
+        index: currentIndex,
+        children: screens,
+      )
     );
   }
 }

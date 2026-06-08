@@ -33,7 +33,7 @@ class ApiManager {
       "list_movies.json",
       queryParameters: {
         "genre": genreName,
-        "sort_by": "date_added",
+        "sort_by": "year",
         "order_by": "desc",
       },
     );

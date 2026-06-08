@@ -11,7 +11,8 @@ class MovieSection extends StatelessWidget {
   final String title;
   final List<Movie>movies;
   final Function(Movie) onMovieSelected;
-  const MovieSection({super.key, required this.title, required this.movies, required this.onMovieSelected});
+  final void Function()? onSeeMorePressed;
+  const MovieSection({super.key, required this.title, required this.movies, required this.onMovieSelected, required this.onSeeMorePressed});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class MovieSection extends StatelessWidget {
             Row(
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: onSeeMorePressed,
                   child: Text(
                     StringsManager.seeMore,
                     style: Theme.of(context).textTheme.titleSmall,

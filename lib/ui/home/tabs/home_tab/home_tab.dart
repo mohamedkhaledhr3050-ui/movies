@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies/core/DI/di.dart';
+import 'package:movies/core/resources/app_constants.dart';
 import 'package:movies/core/resources/assets_manager.dart';
 import 'package:movies/core/resources/routes_manager.dart';
 import 'package:movies/ui/home/tabs/home_tab/movieStates/movie_list_states.dart';
@@ -14,7 +15,8 @@ import '../../../../data/model/movies_response/Movie.dart';
 import 'movieStates/movie_page_states.dart';
 
 class HomeTab extends StatefulWidget {
-  const HomeTab({super.key});
+  final Function(int) goToExplore;
+  const HomeTab({super.key, required this.goToExplore});
 
   @override
   State<HomeTab> createState() => _HomeTabState();
@@ -26,14 +28,12 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   void initState() {
-    // TODO: implement initState
     controller = PageController(viewportFraction: 0.8);
     super.initState();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     controller.dispose();
     super.dispose();
   }
@@ -42,6 +42,14 @@ class _HomeTabState extends State<HomeTab> {
     Navigator.pushNamed(context, RoutesManager.details, arguments: movie);
   }
 
+
+  void _handleSeeMore(String genreName) {
+    // استخدم الماب اللي عندك في الـ AppConstants عشان تجيب الـ ID
+    int? id = AppConstants.movieGenres[genreName];
+    if (id != null) {
+      widget.goToExplore(id);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -205,6 +213,7 @@ class _HomeTabState extends State<HomeTab> {
                             onMovieSelected: (movie) => _goToDetailsScreen(movie) ,
                             title: state.title1,
                             movies: state.movies1,
+                            onSeeMorePressed:()=> _handleSeeMore(state.title1)
                           ),
 
                           SizedBox(height: 24.h),
@@ -212,6 +221,7 @@ class _HomeTabState extends State<HomeTab> {
                             onMovieSelected: (movie) => _goToDetailsScreen(movie) ,
                             title: state.title2,
                             movies: state.movies2,
+                              onSeeMorePressed:()=> _handleSeeMore(state.title2)
                           ),
 
                           SizedBox(height: 24.h),
@@ -219,6 +229,7 @@ class _HomeTabState extends State<HomeTab> {
                             onMovieSelected: (movie) => _goToDetailsScreen(movie) ,
                             title: state.title3,
                             movies: state.movies3,
+                              onSeeMorePressed:()=> _handleSeeMore(state.title3)
                           ),
                           SizedBox(height: 90.h),
                         ],
