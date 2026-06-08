@@ -44,6 +44,8 @@ import '../../ui/Auth/forgetPassword/viewModel/forget_password_viewModel.dart'
     as _i790;
 import '../../ui/Auth/login/viewModel/login_view_model.dart' as _i610;
 import '../../ui/Auth/register/viewModel/register_view_model.dart' as _i935;
+import '../../ui/home/tabs/explore_tab/exploreViewModel/explore_view_model.dart'
+    as _i1027;
 import '../../ui/home/tabs/home_tab/viewModel/movie_list_view_model.dart'
     as _i725;
 import '../../ui/home/tabs/home_tab/viewModel/movie_page_view_model.dart'
@@ -105,6 +107,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i138.SearchRepo>(
       () => _i1008.SearchRepoImpl(gh<_i41.SearchDao>()),
+    );
+    gh.factory<_i1027.ExploreViewModel>(
+      () => _i1027.ExploreViewModel(gh<_i26.MovieListRepo>()),
     );
     gh.factory<_i725.MovieListViewModel>(
       () => _i725.MovieListViewModel(gh<_i26.MovieListRepo>()),
